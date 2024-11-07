@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #555;
+  display: flex;
+}
+
+/* Sidebar navigation styling */
+nav {
+  width: 200px;
+  height: 100vh;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+nav ul {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+}
+
+nav ul li {
+  width: 100%;
+}
+
+nav ul li a {
+  display: block;
+  padding: 15px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #444;
+}
+
+/* Adjust content area to account for sidebar */
+.main-content {
+  margin-left: 220px; 
+  padding: 20px;
+  width: calc(100% - 220px);
+}
+
+/* Header styling within the main content */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+header h2 {
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  margin: 0;
+}
+
+header p a {
+  color: #ff6347; 
+  background-color: #333; 
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+header p a:hover {
+  background-color: #ff6347;
+  color: #fff;
+}
+
+/* Main section styling for emails */
+section.email-list {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.email-item {
+  display: grid;
+  grid-template-columns: 40px 2fr 4fr 100px;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.2s;
+}
+
+.email-item:hover {
+  background-color: #f9f9f9;
+}
+
+.email-checkbox {
+  margin: 0;
+}
+
+.email-sender {
+  font-weight: bold;
+  color: #333;
+}
+
+.email-subject a {
+  text-decoration: none;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.email-subject a:hover {
+  color: #333;
+}
+
+.email-date {
+  text-align: right;
+  color: #888;
+  font-size: 0.9em;
+}
+
+/* Button styling */
+#deleteSentEmailsButton {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #ff6347; 
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#deleteSentEmailsButton:hover {
+  background-color: #ff4500;
+  transform: scale(1.05);
+}
+
+#deleteSentEmailsButton:active {
+  background-color: #cc3700;
+  transform: scale(0.95); 
+}
+#deleteEmailsButton {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #ff6347; 
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#deleteEmailsButton:hover {
+  background-color: #ff4500;
+  transform: scale(1.05);
+}
+
+#deleteEmailsButton:active {
+  background-color: #cc3700;
+  transform: scale(0.95); 
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: #333;
+}
+
+footer a:hover {
+  color: #4CAF50;
+}

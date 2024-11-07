@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Outbox</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/main.js"></script>
+  <link rel="stylesheet" href="/css/paginationBar.css">
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <nav>
+    <ul>
+      <li><a href="/inbox">Inbox</a></li>
+      <li><a href="/outbox">Outbox</a></li>
+      <li><a href="/compose">Compose</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+      <h2>Outbox</h2>
+      <p>Welcome, <%= user.full_name %> | <a href="/logout">Sign Out</a></p>
+    </header>
+    
+    <form id="deleteSentEmailsForm">
+      <section class="email-list">
+        <% emails.forEach(email => { %>
+          <div class="email-item">
+            <input type="checkbox" name="selectedEmails" value="<%= email.id %>" class="email-checkbox">
+            <p class="email-sender"><strong>To:</strong> <%= email.recipient_full_name %></p>
+            <p class="email-subject"><strong>Subject:</strong> <a href="/email/<%= email.id %>"><%= email.subject || "(no subject)" %></a></p>
+            <p class="email-date"><strong>Sent:</strong> <%= email.created_at %></p>
+          </div>
+        <% }) %>
+      </section>
+      <button type="button" id="deleteSentEmailsButton">Delete Emails</button>
+    </form>
+
+    <footer class="pagination">
+      <% if (page > 1) { %>
+        <a href="?page=<%= page - 1 %>" class="prev">&laquo; Previous</a>
+      <% } %>
+      <span class="page-number active">Page <%= page %></span>
+      <% if (emails.length === 5) { %>
+        <a href="?page=<%= page + 1 %>" class="next">Next &raquo;</a>
+      <% } %>
+    </footer>
+  </div>
+</body>
+</html>

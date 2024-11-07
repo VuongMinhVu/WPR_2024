@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Compose Email</title>
+  <link rel="stylesheet" href="/css/style-compose.css">
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <nav>
+    <ul>
+      <li><a href="/inbox">Inbox</a></li>
+      <li><a href="/outbox">Outbox</a></li>
+      <li><a href="/compose">Compose</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+      <h2>Compose Email</h2>
+      <p>Welcome, <%= user.full_name %> | <a href="/logout">Sign Out</a></p>
+    </header>
+
+    <% if (error) { %>
+      <p style="color: red;"><%= error %></p>
+    <% } %>
+
+    <form action="/compose" method="POST" enctype="multipart/form-data">
+      <label for="recipientId">Recipient:</label>
+      <select name="recipientId" id="recipientId" required>
+        <option value="">Select a recipient</option>
+        <% users.forEach(user => { %>
+          <option value="<%= user.id %>"><%= user.full_name %> (<%= user.email %>)</option>
+        <% }) %>
+      </select>
+
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject">
+      
+      <label for="body">Body:</label>
+      <textarea id="body" name="body"></textarea>
+      
+      <label for="attachment">Attachment:</label>
+      <input type="file" id="attachment" name="attachment">
+      
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>
